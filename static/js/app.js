@@ -19,7 +19,6 @@ d3.json(url).then(function (data) {
             .text(names[i]);
     };
 
-    //buildMetaData(names[0])
 
     optionChanged(names[0])
 
@@ -39,7 +38,7 @@ function buildMetaData(id) {
             panel.append("h6").text(`${key.toUpperCase()}: ${result[key]}`);
         };
 
-        // (Another way to write the above code)
+        // (Another way to write the above code for reference
         //  Object.entries(result).forEach(([key, value]) => {
         //  box.append("h6").text(`${key.toUpperCase()}: ${value}`);
         //  });
@@ -47,6 +46,7 @@ function buildMetaData(id) {
     });
 }
 
+// defining function we want to activate when user changes drop down menu
 function optionChanged(id) {
     buildMetaData(id)
     updatePlotly(id)
@@ -55,10 +55,7 @@ function optionChanged(id) {
 
 
 
-// Call updatePlotly() when a change takes place to the DOM
-//dropDownOptions.on("change", optionChanged);
-
-// Function for when a dropdown menu item is selected
+// Function to update bar chart once user has select id from drop down menu
 function updatePlotly(id) {
     d3.json(url).then(function (data) {
         let barChart = d3.select("#bar");
@@ -67,11 +64,6 @@ function updatePlotly(id) {
         let sampleArray = samples.filter(Obj => Obj.id == id);
         let sampleResult = sampleArray[0] 
         barChart.html("");
-
-        //    let dropdownMenu = d3.select("#selDataset");
-        //   let idNumber = dropdownMenu.property("value");
-
-        //create loop to find data connect to dropdown menu item
 
         //samples.sample_values (slice for first 10 items)
         let sample_values = sampleResult.sample_values.slice(0, 10);
@@ -83,7 +75,7 @@ function updatePlotly(id) {
         traceData = [{
             orientation : 'h',
             x: sample_values,
-            //y: `OTU ${otu_ids}`,
+            //y: `OTU ${otu_ids}`, currently this line does not do anything even when not commented out
             text: otu_labels,
             type: "bar"
         }]
@@ -93,8 +85,7 @@ function updatePlotly(id) {
 
 }
 
- // creating bubble chart function
- 
+ // creating bubble chart function to activate when user changed input for drop down menu
  function updateBubble(id) {
     d3.json(url).then(function (data) {
         let bubbleChart = d3.select("#bubble");
@@ -104,7 +95,6 @@ function updatePlotly(id) {
         let sampleResult = sampleArray[0] 
         bubbleChart.html("");
 
-        //create loop to find data connect to dropdown menu item
 
         let bubSample_values = sampleResult.sample_values;
         let bubOtu_ids = sampleResult.otu_ids;
