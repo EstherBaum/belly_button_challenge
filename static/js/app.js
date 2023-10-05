@@ -83,7 +83,7 @@ function updatePlotly(id) {
         traceData = [{
             orientation : 'h',
             x: sample_values,
-            y: `OTU ${otu_ids}`,
+            //y: `OTU ${otu_ids}`,
             text: otu_labels,
             type: "bar"
         }]
@@ -113,6 +113,7 @@ function updatePlotly(id) {
         let bubTraceData = [{
             x: bubOtu_ids,
             y: bubSample_values,
+            text: bubOtu_labels,
             mode: "markers",
             marker : {
                 size: bubSample_values,
