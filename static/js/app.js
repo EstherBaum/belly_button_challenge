@@ -81,8 +81,9 @@ function updatePlotly(id) {
         let otu_labels = sampleResult.otu_labels.slice(0, 10);
 
         traceData = [{
-            x: {otu_ids},
-            y: sample_values,
+            orientation : 'h',
+            x: sample_values,
+            y: `OTU ${otu_ids}`,
             text: otu_labels,
             type: "bar"
         }]
@@ -109,7 +110,7 @@ function updatePlotly(id) {
         let bubOtu_ids = sampleResult.otu_ids;
         let bubOtu_labels = sampleResult.otu_labels;
 
-        bubTraceData = [{
+        let bubTraceData = [{
             x: bubOtu_ids,
             y: bubSample_values,
             mode: "markers",
@@ -119,7 +120,12 @@ function updatePlotly(id) {
             }
         }]
 
-        Plotly.newPlot("bubble", bubTraceData);
+        let layout = {
+            title: "OTU ID"
+        
+        }
+
+        Plotly.newPlot("bubble", bubTraceData, layout);
     });   
 
 
