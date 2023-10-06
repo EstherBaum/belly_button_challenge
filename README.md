@@ -1,5 +1,9 @@
 # belly_button_challenge
 
+##github Pages link
+
+* Please see link for github pages link of homework https://estherbaum.github.io/belly_button_challenge/
+
 ## Acknowledgements:
 
 I received significant help on this homework from a tutoring session with David Chao. He guided me through building the buildMetaData function in lines 27-47 and adding it to "function optionChanged(id)" in line 50. He also helped me with lines 60-66 of the "function updatePlotly"
