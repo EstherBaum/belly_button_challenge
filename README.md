@@ -1,6 +1,6 @@
 # belly_button_challenge
 
-##github Pages link
+## github Pages link
 
 * Please see link for github pages link of homework https://estherbaum.github.io/belly_button_challenge/
 
